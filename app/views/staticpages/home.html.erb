@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="photopost_form">
+        <%= render 'shared/photo_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>画像投稿フィード</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <h1>ようこそInstaCloneへ！</h1>
+    <%= link_to "アカウント作成はこちら", new_user_registration_path, class: "btn btn-lg btn-success" %>
+    <%= link_to "Facebookログインはこちら", user_facebook_omniauth_authorize_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

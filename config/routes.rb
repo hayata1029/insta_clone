@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'staticpages#home'
+  resources  :mypages,    only: [:show, :index]
+  resources  :photoposts, only: [:create, :destroy]
+  devise_for :users, controllers: { registraions: 'users/registraions',
+                                    sessions: 'users/sessions',
+                                    omniauth_callbacks: 'users/omniauth_callbacks'  }
+  
 end
+

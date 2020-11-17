@@ -1,0 +1,18 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "InstaClone", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to "通知",   '#' %></li>
+          <li><%= link_to "画像の投稿", "/" %></li>
+          <li><%= link_to 'プロフィール', mypage_path(current_user) %></li>
+          <li><%= link_to 'フォローする？', mypages_path %></li>
+          <li><%= link_to 'ログアウト',       destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'ログイン',           new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

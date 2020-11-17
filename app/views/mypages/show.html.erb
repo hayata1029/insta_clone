@@ -1,8 +1,18 @@
-<h1><%= @user.name%>のページ</h1>
+<h1><%= @user.name%></h1>
 <div><%= link_to 'プロフィールの編集', edit_user_registration_path %></div>
-<p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
+<aside class="col-md-4">
+  <h1>
+    <%= gravatar_for @user %>
+    <%= render 'follow_form' if user_signed_in? %>
+  </h1>
+  <section class="stats">
+    <%= render 'shared/stats' %>
+  </section>
+</aside>
+<div class="col-md-8">
+<h3><%= @user.photoposts.count %>投稿</h3>
+  <ol class="photoposts">
+     <%= render @photoposts %>
+  </ol>
+</div>
 
-<ol class="photoposts">
-   <%= render @photoposts %>
-</ol>

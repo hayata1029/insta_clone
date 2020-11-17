@@ -1,37 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>InstaClone</title>
+    <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-    <![endif]-->
+    <%= render 'layouts/shim' %>
   </head>
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <%= link_to "InstaClone", '/', id: "logo" %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <!--<link_to "トップページ",   '/' %>-->
-            
-            <% if user_signed_in? %>
-              <li><%= link_to "通知",   '#' %></li>
-              <li><%= link_to "画像の投稿", "/" %></li>
-              <li><%= link_to 'プロフィール', mypage_path(current_user) %></li>
-              <li><%= link_to 'ログアウト',       destroy_user_session_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to 'ログイン',           new_user_session_path %></li>
-            <% end %>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <%= render 'layouts/header' %>
     <div class="container">
       <%= yield %>
     </div>

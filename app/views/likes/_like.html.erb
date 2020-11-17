@@ -1,0 +1,18 @@
+<% if current_user != photopost.user %>
+  <span class="like">
+  <% if photopost.iine?(current_user) %>
+    <%= form_for(photopost.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+      <%= button_tag(class: "btn btn-default btn-xs") do %>
+        <%= content_tag :span, "#{photopost.likes_count}", class: "glyphicon glyphicon-heart" %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= form_for(photopost.likes.build, remote: true) do |f| %>
+      <div><%= hidden_field_tag :photopost.id, photopost.id %></div>
+      <%= button_tag(class: "btn btn-default btn-xs") do %>
+        <%= content_tag :span, "#{photopost.likes_count}", class: "glyphicon glyphicon-heart-empty" %>
+      <% end %>
+    <% end %>
+  <% end %>
+  </span>
+<% end %>

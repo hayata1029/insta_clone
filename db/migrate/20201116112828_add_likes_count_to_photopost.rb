@@ -18,7 +18,7 @@ class AddLikesCountToPhotopost < ActiveRecord::Migration[5.2]
   
   private
   
-    def up
+    def _up
       MigrationUser.reset_column_information
       
       

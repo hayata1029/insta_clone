@@ -1,1 +1,1 @@
-$("#micropost-<%= @photopost.id %> .like").html("<%= escape_javascript(render "likes/like", photopost: @photopost) %>");
+$("#photopost-<%= @photopost.id %> .like").html("<%= escape_javascript(render "likes/like", photopost: @photopost) %>");

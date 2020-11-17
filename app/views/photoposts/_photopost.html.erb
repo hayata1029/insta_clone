@@ -6,8 +6,10 @@
     <%= photopost.content %>
   </span>
   <span class="timestamp">
-   <%= link_to "削除", photopost, method: :delete,
-                                      data: { confirm: "You sure?" } %>
+    <% if current_user == @user %>
+     <%= link_to "削除", photopost, method: :delete,
+                                        data: { confirm: "You sure?" } %>
+    <% end %>
   </span>
   <%= render "likes/like", photopost: photopost %>
 </li>

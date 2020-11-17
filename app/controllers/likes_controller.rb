@@ -3,8 +3,9 @@ class LikesController < ApplicationController
   
   def create
     @photopost = Photopost.find(params[:photopost_id])
-    unless @photopost.line?(current_user)
+    unless @photopost.iine?(current_user)
       @photopost.iine(current_user)
+      @photopost.reload
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }
         format.js
@@ -14,8 +15,9 @@ class LikesController < ApplicationController
 
   def destroy
     @photopost = Like.find(params[:id]).photopost
-    if @photopost.line?(current_user)
+    if @photopost.iine?(current_user)
       @photopost.uniine(current_user)
+      @photopost.reload
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }
         format.js

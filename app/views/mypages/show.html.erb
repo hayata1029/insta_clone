@@ -9,10 +9,19 @@
     <%= render 'shared/stats' %>
   </section>
 </aside>
+<!--検索拡張機能-->
+  <%= form_tag mypage_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "検索", :name => nil %>
+    </p>
+  <% end %>
 <div class="col-md-8">
 <h3><%= @user.photoposts.count %>投稿</h3>
   <ol class="photoposts">
      <%= render @photoposts %>
   </ol>
 </div>
+
+
 

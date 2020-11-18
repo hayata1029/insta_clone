@@ -2,12 +2,13 @@ class MypagesController < ApplicationController
   before_action :authenticate_user!, only: [:following, :followers]
 
    def index
-     @users = User.paginate(page: params[:page])
+    #  @users = User.where(activated: true).search(params[:search])
+    @users = User.all.search(params[:search])
    end
 
    def show
      @user = User.find(params[:id])
-     @photoposts = @user.photoposts
+     @photoposts = @user.photoposts.search(params[:search])
    end
    
    def following

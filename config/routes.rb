@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'staticpages#home'
   resources  :mypages,       only: [:show, :index]
-   resources :mypages do
+  resources :mypages do
     member do
       get :following, :followers
     end

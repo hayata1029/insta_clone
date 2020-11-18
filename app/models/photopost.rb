@@ -20,6 +20,14 @@ class Photopost < ApplicationRecord
   def iine?(user)
     iine_users.include?(user)
   end
+  
+  def self.search(search)
+    if search
+      where(['content LIKE ?', "%#{search}%"]) 
+    else
+      all 
+    end
+  end
 end
 
 

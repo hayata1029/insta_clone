@@ -22,7 +22,12 @@
     <h3><%= @title %></h3>
     <% if @users.any? %>
       <ul class="users follow">
-        <!--< render @users %>-->
+        <% @users.each do |user| %>
+          <li>
+            <%= gravatar_for(user, size:50) %>
+            <%= link_to user.name, mypage_path(user) %>
+          </li>
+        <% end %>
       </ul>
     <% end %>
   </div>

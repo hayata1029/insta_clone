@@ -2,7 +2,6 @@ class MypagesController < ApplicationController
   before_action :authenticate_user!, only: [:following, :followers]
 
    def index
-    #  @users = User.where(activated: true).search(params[:search])
     @users = User.all.search(params[:search])
    end
 

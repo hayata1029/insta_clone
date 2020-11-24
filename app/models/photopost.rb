@@ -5,6 +5,7 @@ class Photopost < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true
   has_many :iine_users, through: :likes, source: :user
+  has_many :comments, dependent: :destroy
   
   # 投稿した画像にいいねをする
   def iine(user)

@@ -20,6 +20,12 @@
 <h3><%= @user.photoposts.count %>投稿</h3>
   <ol class="photoposts">
      <%= render @photoposts %>
+     <!--< @comments.each do |comment| %>-->
+     <!--  <= comment.user.name %>-->
+     <!--  <= comment.content %>-->
+     <!--  <= link_to "削除する", photopost_comment_path(@photopost, comment), method: :delete %>-->
+     <!--< end %>-->
+     <!--<= render 'comment_form' %>-->
   </ol>
 </div>
 

@@ -1,0 +1,16 @@
+<li id="photopost-<%= photopost.id %>">
+  <%= link_to gravatar_for(photopost.user, size: 50) %>
+  <span class="user"><%= link_to photopost.user.name, "#" %></span>
+  <span class="content">
+    <%= image_tag photopost.picture.url if photopost.picture? %>
+    <%= photopost.content %>
+  </span>
+  <span class="timestamp">
+    <% if current_user == @user %>
+     <%= link_to "削除", photopost, method: :delete,
+                                        data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+  <%= render "likes/like", photopost: photopost %>
+</li>
+

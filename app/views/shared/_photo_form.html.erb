@@ -1,0 +1,10 @@
+<h1>画像を投稿する</h1>
+<%= form_for(@photopost) do |f| %>
+  <span class="picture">
+    <%= f.file_field :picture %>
+  </span>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "コメントの追加" %>
+  </div>
+  <%= f.submit "投稿", class: "btn btn-success" %>
+<% end %>

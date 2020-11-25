@@ -1,0 +1,19 @@
+michael:
+  name: Michael Example
+  email: michael@example.com
+  password_digest: "foobar"
+
+archer:
+  name: Sterling Archer
+  email: duchess@example.gov
+  password_digest: "sterlingarcher"
+  
+lana:
+  name: Lana Kane
+  email: hands@example.gov
+  password_digest: "lanakane"
+
+malory:
+  name: Malory Archer
+  email: boss@example.gov
+  password_digest: "maloryarcher"
